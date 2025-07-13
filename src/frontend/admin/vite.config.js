@@ -1,16 +1,12 @@
 import { defineConfig } from 'vite';
-import postcss from '../../../postcss.config.js';
+import path from 'path';
+
 export default defineConfig({
-  root: './src/frontend/admin',
   build: {
-    outDir: '../../../dist',
-    emptyOutDir: true,
     rollupOptions: {
-      input: './src/frontend/admin/admin.html'
-    }
-  },
-  css: {
-    postcss
-  },
-  publicDir: 'public',
+      input: path.resolve(__dirname, '../../../public/admin.html')
+    },
+    outDir: path.resolve(__dirname, '../../../dist'),
+    emptyOutDir: true
+  }
 });
