@@ -1,17 +1,3 @@
-
-document.getElementById("hamburgerMenu").addEventListener("click", navMenu);
-document.getElementById("navClose").addEventListener("click", hidenavMenu);
-document.getElementById("navBlur").addEventListener("click", hidenavMenu);
-
-function navMenu(){
-    document.getElementById("navBlur").classList.remove("invisible");
-    document.getElementById("navMenu").classList.remove("invisible");
-}
-function hidenavMenu(){
-    document.getElementById("navBlur").classList.add("invisible");
-    document.getElementById("navMenu").classList.add("invisible");
-}
-
 document.getElementById("hamburgerMenu").addEventListener("click", navMenu);
 document.getElementById("navClose").addEventListener("click", hidenavMenu);
 document.getElementById("navBlur").addEventListener("click", hidenavMenu);
