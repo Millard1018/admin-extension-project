@@ -9,7 +9,7 @@
     "copy:html": "copyfiles -u 3 ./src/frontend/admin/admin.html ./dist/",
     "copy:admin-assets": "copyfiles -u 3 \"src/frontend/admin/**/*.{js,png,jpg,jpeg,svg,webp,ico,css,json}\" ./dist/",
     "copy:resources": "copyfiles -u 3 \"src/frontend/resources/**/*.{png,jpg,jpeg,svg,webp,ico,json}\" ./dist/",
-    "build": "npm-run-all build:admin copy:html copy:admin-assets copy:resources"
+    "build": "npm run build:admin && npm run copy:html && npm run copy:admin-assets && npm run copy:resources"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.7",
