@@ -1,4 +1,4 @@
-import {UserData} from './UserData.js';
+import {UserData} from '../public/UserData.js';
 
 const latestBenefits = [
     new UserData("012345", "Juan Dela Cruz", "1018052004", "Birthday Benefit", "June 30, 2025", "Claimed", "January 18, 2005", "Kanluran, Santa Rosa", "0987-654-3210", "Mobility Impaired", "Centralized", "₱ 1000"),
