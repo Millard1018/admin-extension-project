@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./user.css" rel="stylesheet">
+        <script src="./interactivity.js" defer></script>
+        <script src="./animations.js" defer type="module"></script>
+    </head>
+    <body class="bg-slate-100  font-poppins overflow-x-hidden selection:bg-slate-900 selection:text-slate-100">
+        <header>
+            <nav class="z-50 fixed flex justify-end w-screen">
+                <div>
+                    <div class=" lg:hidden flex justify-center items-center h-10 w-10 mt-9 mr-6 md:mr-10 md:mt-15 rounded-xl sm:mr-7 sm:mt-12 sm:w-13 sm:h-13 bg-slate-900/20">
+                        <svg viewBox="2 2 20 20" id="hamburgerMenu" src="/resources/bars-3.svg" class=" z-50 size-6 sm:size-8 relative stroke-slate-200 stroke-3 ">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.90 h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </div>
+                    <div id="navBlur" class="invisible z-50 w-screen h-[120vh] fixed left-0 top-0 bg-black/50 backdrop-blur-xs"></div>
+                    <div id="navMenu" class="lg:shadow-xl self-center lg:top-5 xl:h-10  lg:justify-around lg:items-center lg:ml-12 lg:mr-10 xl:mr-10 xl:ml-17 lg:w-[90vw]  lg:visible lg:rounded-4xl lg:flex lg:bg-slate-50 lg:h-10  invisible z-50 w-screen left-0 h-[60vh] fixed top-0 text-slate-200 sm:rounded-b-3xl rounded-b-2xl bg-slate-900">
+                        <div class="flex ">
+                            <h1 class=" lg:top-0 lg:text-slate-900 md:text-3xl lg:text-xl justify-self-start left-[9vw] lg:left-0 sm:left-[8vw] md:left-[9vw] top-[7vh] relative font-rubik text-2xl font-semibold tracking-tighter">
+                                <span class="text-slate-900 lg:hidden bg-slate-200  font-poppins font-semibold text-[7px] md:text-[2xl] tracking-[0.5vw] absolute -top-[1vh] "> BARANGAY </span> Kanluran
+                            </h1>
+                            <div id="navClose" class="lg:hidden justify-self-end left-[60vw] md:left-[73vw] top-[7vh] relative ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="lg:flex lg:top-0 md:leading-25 navlistContainer lg:leading-10  lg:text-slate-900 lg:gap-10 text-lg md:text-2xl lg:text-2xl xl:text-xl relative md:left-20 md:top-40 top-20 sm:top-30 lg:left-0 left-10 sm:left-15 leading-15">
+                            <li class="group/home">
+                                <a href = "#homeSection">Home</a>
+                                <div class="lg:hidden group-hover/home:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class="group/news">
+                                <a href = "#statusSection">Status</a>
+                                <div class="lg:hidden group-hover/news:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class="group/officials">
+                                <a href = "#transactionsSection">Transactions</a>
+                                <div class="lg:hidden group-hover/officials:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class="group/aboutus">
+                                <a href = "#aboutusSection">About Us</a>
+                                <div class="lg:hidden group/aboutus:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                        </ul>
+                        <div id="profile" class="w-40 lg:flex flex-row relative items-center">
+                            <h2 class="text-slate-900 truncate">Joshua Marasigan</h2>
+                            <img src="/resources/heroImage.png" class=" size-9 rounded-full">
+                        </div>
+                        <div id="settings" class="hidden  hover:scale-101 transition-all bg-slate-100/90 backdrop-blur-xs  items-center  flex-col text-slate-900 w-90 h-55 absolute top-15 rounded-4xl shadow-2xl right-0">
+                            <div class="flex flex-row w-90 justify-end  ">
+                                <div class="flex  mt-4.5 text-xl">
+                                    <p class="font-semibold">Settings</p>
+                                </div>
+                                <div id="settingsExit" class=" flex items-center ml-20 w-7 mr-9">
+                                    <div class="[mask-image:url('/resources/x-mark.svg')]  mt-5 mask-contain bg-slate-900 h-5 w-5"></div>
+                                </div>
+                            </div>
+                            <div class="flex-col gap-2 flex items-center h-40 justify-center">
+                                <div>
+                                    <p>Profile</p>
+                                    <div class="w-70 bg-slate-900 h-0.5"></div>
+                                </div>
+                                <div>
+                                    <p>Account</p>
+                                    <div class="w-70 bg-slate-900 h-0.5"></div>
+                                </div>
+                                <div>
+                                    <p>Change Password</p>
+                                    <div class="w-70 bg-slate-900 h-0.5"></div>
+                                </div>
+                                <div class="flex gap-2 self-end mt-5">
+                                    <div class="[mask-image:url('/resources/arrow-left-rectangle.svg')] mask-no-repeat mask-contain bg-slate-900 w-5 h-5"></div>
+                                    <p>Logout</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div id = "homeSection" class="sectionContainer md:h-screen">
+                <!--Hero Image-->
+                <div class="-z-10 fixed top-0 ">
+                    <img src="/resources/heroImage.png" class="w-screen grayscale-100 h-[120vh] md:object-[-90vh_-8vh] object-[-107vh_-8vh] xl:object-center sm:object-[-30vw_-8vh] object-cover">
+                    <div class="bg-slate-100/20 md:bg-linear-to-t from-slate-100/90 to-slate-100/50 w-screen h-screen absolute top-0"></div>
+                </div>
+                <div class="relative sm:h-[61vh] md:h-[25vh] h-[60vh]"></div>
+                <!--Hero Texts and CTA-->
+                <div class=" md:left-15 lg:left-0 lg:text-center  lg:w-screen xl:left-0  md:bg-transparent md:fixed  overflow-y-visible bg-slate-100 rounded-t-[2em] text-slate-900 h-[46vh] xl:h-[55vh] flex flex-col justify-center items-center relative">
+                    <div class="md:hidden absolute sm:h-1.5  h-1 w-[20vw] top-[3vh] bg-slate-900"></div>
+                    <div class="flex-row justify-center flex items-center">
+                        <div class="relative font-hanken -top-3">
+                            <h1 class="bg-slate-900 pr-3 lg:pr-5 lg:pl-9 pl-5  text-2xl font-poppins tracking-[0.5em] inline-block text-slate-200">PWD</h1>
+                            <h1 class="text-5xl  md:mt-0 md:text-7xl tracking-[0.09em]">FINANCIAL <br>
+                                <span class="text-5xl md:text-7xl  md:-top-4 -left-1 tracking-[0.01em] relative -top-2">ASSISTANCE</span>
+                            </h1>
+                            <h1 class="text-3xl lg:text-4xl lg:-mt-5 md:-mt-7 -mt-4 font-poppins font-semibold">System</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="relative -top-2 bg-slate-100 text-slate-900">
+            <!--Benefits Status-->
+            <section id = "statusSection"  class=" sectionContainer md:top-15 top-5 w-screen relative">
+                <!--Benefits Status Text-->
+                <div class="flex flex-col items-center justify-center">
+                    <h2 class=" relative font-poppins top-2 md:top-2 text-[1.05em] md:text-[1.30em] lg:text-3xl ">Benefits</h2>
+                    <h2 class=" font-hanken text-[1.7em] sm:text-[2em] md:text-[2.3em] lg:text-4xl  ">STATUS</h2>
+                    <div class=" md:w-15 bg-slate-900 w-12 h-1 sm:w-13 top-2 lg:top-3 relative mb-15"></div>
+                </div>
+                <!--Benefits Section Contents-->
+                <div class="flex flex-col items-center justify-center">
+                    <!--Status Available Section-->
+                    <div class="  mb-20 relative overflow-hidden w-[90vw] h-[20vh] xl:h-[40vh]  rounded-4xl ">
+                        <div class="relative">
+                            <img class="object-cover w-[90vw] h-[40vh] grayscale-100" src="/resources/heroImage.png">
+                            <div class="bg-linear-to-r from-25  from-slate-900/90  to-slate-100/70 absolute top-0 w-[90vw] h-[40vh]"></div>
+                        </div>
+                        <div class="absolute top-7 left-7 lg:top-10 lg:left-10 text-slate-100 flex-col ">
+                            <p class="text-lg md:text-xl lg:text-2xl font-semibold ">Hi, Joshua Marasigan!</p>
+                            <div class="w-[85vw] md:text-3xl lg:text-4xl -mt-1 text-2xl xl:text-5xl h-[20vh] overflow-hidden font-semibold">
+                                <p>Pension Available</p>
+                            </div>
+                            <button id="claimBtn" class="relative lg:-top-34 -top-25 md:text-xl md:-top-28 xl:top-0 bg-slate-100 rounded-4xl md:py-1 text-slate-900 px-2 py-1 md:px-4 xl:px-10 hover:bg-slate-100/90 text-xs">Claim Now</button>
+                        </div>
+                    </div>
+                    <!--Status Summary-->
+                    <div class="mb-20 ">
+                        <div class=" gap-2 mb-10 sm:mb-15 flex items-center ">
+                            <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Status</h2>
+                            <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">SUMMARY</h2>
+                            <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                        </div>
+                        <div class="grid grid-cols-3 w-[85vw] gap-2">
+                            <div class="rounded-2xl xl:h-[15vh] bg-slate-900  hover:bg-slate-900/90 hover:scale-101 flex flex-col lg:text-3xl lg:flex-row justify-center items-center overflow-hidden text-xl h-[20vh] lg:h-[10vh] text-slate-100 font-semibold">
+                                <div class="flex flex-col leading-1.5 h-12 ">
+                                    <p class="font-hanken text-sm lg:text-xl  relative top-0 ">AVAILABLE</p>
+                                    <br>
+                                    <p>benefits</p>
+                                </div>
+                                <div class="relative mt-2 gap-2 lg:gap-7 lg:flex lg:flex-row">
+                                    <p class="hidden lg:block lg:ml-7">|</p>
+                                    <div class="bg-slate-100 lg:hidden  -left-7 w-20 absolute h-0.5"></div>
+                                    <p class="mt-7 lg:mt-0">30</p>
+                                </div>
+                            </div>
+                            <div class="justify-center xl:h-[15vh] items-center font-semibold text-slate-900 lg:h-[10vh] lg:text-3xl hover:scale-101 overflow-hidden text-2xl bg-slate-300 hover:bg-slate-300/70 flex rounded-2xl  col-span-2 h-[20vh]">
+                                <div class="leading-1 lg:leading-2  h-12 ">
+                                    <p class="font-hanken text-lg lg:text-xl">UNCLAIMED</p>
+                                    <br>
+                                    <p>benefits</p>
+                                </div>
+                                <div class="flex-row flex gap-7 ml-4">
+                                    <p>|</p>
+                                    <p>30</p>
+                                </div>
+                            </div>
+                            <div class="justify-center xl:h-[15vh] items-center font-semibold text-slate-900 lg:h-[10vh] hover:scale-101 lg:text-3xl overflow-hidden text-2xl hover:bg-slate-300/70  bg-slate-300 flex rounded-2xl  col-span-2 h-[20vh]">
+                                <div class="leading-1 lg:leading-2  h-12 ">
+                                    <p class="font-hanken text-lg lg:text-xl">DELAYED</p>
+                                    <br>
+                                    <p>benefits</p>
+                                </div>
+                                <div class="flex-row flex gap-7 ml-4">
+                                    <p>|</p>
+                                    <p>30</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl xl:h-[15vh]  bg-slate-900 flex flex-col  hover:bg-slate-900/90 hover:scale-101 lg:text-3xl lg:flex-row justify-center items-center overflow-hidden text-xl h-[20vh] lg:h-[10vh] text-slate-100 font-semibold">
+                                <div class="flex flex-col leading-1 lg:leading-2 h-12 ">
+                                    <p class="font-hanken text-sm lg:text-xl  relative top-0 ">INCOMING</p>
+                                    <br>
+                                    <p>benefits</p>
+                                </div>
+                                <div class="relative mt-2 gap-2 lg:gap-7 lg:flex lg:flex-row">
+                                    <p class="hidden lg:block lg:ml-7">|</p>
+                                    <div class="bg-slate-100 lg:hidden  -left-7 w-20 absolute h-0.5"></div>
+                                    <p class="mt-7 lg:mt-0">30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Benefits Details Section-->
+                    <div class=" relative  w-[85vw] flex flex-col   ">
+                        <div class=" gap-2 mb-10 sm:mb-15 flex items-center ">
+                            <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Benefits</h2>
+                            <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">DETAILS</h2>
+                            <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                        </div>
+                        <div id="carouselContainer" class="relative mb-5 snap-x self-center gap-7 sm:mb-7  flex items-center rounded-3xl h-100 w-[65vw] overflow-x-scroll overflow-y-hidden sm:w-[85vw] sm:h-110 py-10 ">
+                            <div class=" delay-150 carouselItem snap-center shrink-0 shadow-xl flex relative overflow-hidden w-[65vw] mb-10  h-80 sm:w-[50vw] sm:h-90 rounded-3xl  items-end group  ">
+                                <img src="/resources/bday_card_pic.png" class="h-90 w-[90vw] object-cover ">
+                                <div class="text-slate-50 delay-150 group-hover:text-slate-900 group-hover:bg-slate-50/100 rounded-3xl hover:bg-slate-50/100 transition-all   backdrop-blur-xs group-hover:h-35 h-30 flex flex-col items-end justify-center w-[65vw] sm:w-[50vw] absolute">
+                                    <div class="flex delay-150  group-hover:mb-10 transition-all mr-5  justify-centers items-center">
+                                        <p class="text-xl  font-bold">Birthday <span class="font-normal">Benefit</span>
+                                        </p>
+                                    </div>
+                                    <div class="flex -bottom-18 delay-150 transition-all mr-7 group-hover:bottom-4 absolute gap-5 ">
+                                        <div class="text-end">
+                                            <p class="font-semibold">Status</p>
+                                            <p>Available</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Claim on</p>
+                                            <p>July 10, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" delay-150 carouselItem snap-center shrink-0 shadow-xl flex relative overflow-hidden w-[65vw] mb-10  h-80 sm:w-[50vw] sm:h-90 rounded-3xl  items-end group  ">
+                                <img src="/resources/Christmas_card_pic.png" class="h-90 w-[90vw] object-cover ">
+                                <div class="text-slate-50 group-hover:text-slate-900 delay-150 rounded-3xl group-hover:bg-slate-50/100 transition-all   backdrop-blur-xs group-hover:h-35 h-30 flex flex-col items-end justify-center w-[65vw] sm:w-[50vw] absolute">
+                                    <div class="flex delay-150  group-hover:mb-10 transition-all mr-5  justify-centers items-center">
+                                        <p class="text-xl  font-bold">Christmas <span class="font-normal">Gift</span>
+                                        </p>
+                                    </div>
+                                    <div class="flex -bottom-18  delay-150 transition-all mr-7 group-hover:bottom-4 absolute gap-5 ">
+                                        <div class="text-end">
+                                            <p class="font-semibold">Amount</p>
+                                            <p>PHP 500.00</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Status</p>
+                                            <p>Available</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Claim on</p>
+                                            <p>July 10, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carouselItem delay-150 snap-start shrink-0 shadow-xl flex relative overflow-hidden w-[65vw] mb-10  h-80 sm:w-[50vw] sm:h-90 rounded-3xl  items-end group  ">
+                                <img src="/resources/pension_card_pic.png" class="h-90 w-[90vw] object-cover ">
+                                <div class="text-slate-50 delay-150 group-hover:text-slate-900 bg-slate-50/8100 rounded-3xl group-hover:bg-slate-50/100 transition-all   backdrop-blur-xs group-hover:h-35 h-30 flex flex-col items-end justify-center w-[65vw] sm:w-[50vw] absolute">
+                                    <div class="flex delay-150 group-hover:mb-10 transition-all mr-5  justify-centers items-center">
+                                        <p class="text-xl  font-bold">Allowance <span class="font-normal">Benefit</span>
+                                        </p>
+                                    </div>
+                                    <div class="flex -bottom-18 delay-150 transition-all mr-7 group-hover:bottom-4 absolute gap-5 ">
+                                        <div class="text-end">
+                                            <p class="font-semibold">Amount</p>
+                                            <p>PHP 500.00</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Status</p>
+                                            <p>Available</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Claim on</p>
+                                            <p>July 10, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" carouselItem shrink-0 delay-150 shadow-xl flex relative overflow-hidden w-[65vw] mb-10  h-80 sm:w-[50vw] sm:h-90 rounded-3xl  items-end group  ">
+                                <img src="/resources/bday_card_pic.png" class="h-90 w-[90vw] object-cover ">
+                                <div class="text-slate-50 delay-150 group-hover:text-slate-900 group-hover:bg-slate-50/100 rounded-3xl hover:bg-slate-50/100 transition-all   backdrop-blur-xs group-hover:h-35 h-30 flex flex-col items-end justify-center w-[65vw] sm:w-[50vw] absolute">
+                                    <div class="flex delay-150 group-hover:mb-10 transition-all mr-5  justify-centers items-center">
+                                        <p class="text-xl  font-bold">Birthday <span class="font-normal">Benefit</span>
+                                        </p>
+                                    </div>
+                                    <div class="flex delay-150 -bottom-18  transition-all mr-7 group-hover:bottom-4 absolute gap-5 ">
+                                        <div class="text-end">
+                                            <p class="font-semibold">Status</p>
+                                            <p>Available</p>
+                                        </div>
+                                        <div class="h-10 w-0.5 bg-slate-950"></div>
+                                        <div class="text-end">
+                                            <p class="font-semibold">Claim on</p>
+                                            <p>July 10, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <!--Transaction Details-->
+            <section id = "transactionsSection"  class=" sectionContainer md:top-15 top-5 w-screen relative">
+                <!--Transaction Details Text-->
+                <div class="h-40 sm:h-60 flex flex-col items-center justify-center">
+                    <h2 class=" relative font-poppins top-2 md:top-2 text-[1.05em] md:text-[1.30em] lg:text-3xl ">Benefits</h2>
+                    <h2 class=" font-hanken text-[1.7em] sm:text-[2em] md:text-[2.3em]  ">TRANSACTIONS</h2>
+                    <div class=" md:w-15 bg-slate-900 w-12 h-1 sm:w-13 top-2 relative mb-15"></div>
+                </div>
+                <!--Transaction Section Contents-->
+                <div class="flex flex-col items-center justify-center">
+                    <!--Transaction Summary-->
+                    <div class="h-115 sm:h-130 lg:h-115 xl:h-85">
+                        <div class=" gap-2 mb-10 sm:mb-15 flex items-center ">
+                            <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Transactions</h2>
+                            <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">SUMMARY</h2>
+                            <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                        </div>
+                        <div class="grid grid-cols-3 lg:mt-5 w-[85vw] gap-2">
+                            <div class="rounded-2xl lg:flex hover:bg-slate-900/90 hover:scale-101 lg:flex-row lg:h-[10vh] xl:h-[15vh] bg-slate-900 flex flex-col justify-center items-center overflow-hidden text-2xl h-[20vh] text-slate-100 font-semibold">
+                                <div class="flex flex-col leading-1.5 h-12 ">
+                                    <p class="font-hanken text-lg md:text-xl relative top-0 ">LATEST</p>
+                                    <br>
+                                    <p class="text-lg relative md:hidden -top-3 leading-4">trans- <br>actions </p>
+                                    <p class="text-lg md:text-2xl md:inline-block hidden relative -top-2 leading-4">transactions</p>
+                                </div>
+                                <div class="relative lg:flex lg:flex-row mt-4 gap-2">
+                                    <p class="hidden lg:ml-3 lg:block">|</p>
+                                    <div class="bg-slate-100 lg:hidden -left-4 md:-left-14 md:w-35 w-15 absolute h-0.5"></div>
+                                    <p class="mt-5 lg:mt-0">30</p>
+                                </div>
+                            </div>
+                            <div class=" xl:h-[15vh] lg:h-[10vh] justify-center lg:text-3xl items-center font-semibold hover:bg-slate-300/70 hover:scale-101  text-slate-900 overflow-hidden text-2xl bg-slate-300 flex rounded-2xl  col-span-2 h-[20vh]">
+                                <div class="leading-5 h-12">
+                                    <p class="font-hanken text-lg lg:text-xl">BARANGAY</p>
+                                    <br>
+                                    <p class="-mt-6">kanluran</p>
+                                </div>
+                            </div>
+                            <div class="lg:h-[10vh] xl:h-[15vh] lg:text-3xl justify-center items-center font-semibold hover:scale-101 hover:bg-slate-300/70  text-slate-900 overflow-hidden text-2xl bg-slate-300 flex rounded-2xl  col-span-2 h-[20vh]">
+                                <div class="leading-5 lg:-mt-3 h-12 -mt-4">
+                                    <p class="font-hanken text-lg lg:text-xl">OLDER</p>
+                                    <br>
+                                    <p class="lg:hidden -mt-6">trans- <br>actions </p>
+                                    <p class="text-lg md:text-2xl lg:inline-block hidden relative -top-6 leading-4">transactions</p>
+                                </div>
+                                <div class="flex-row flex gap-7 ml-4">
+                                    <p>|</p>
+                                    <p>30</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl xl:h-[15vh] hover:bg-slate-900/90 hover:scale-101 lg:flex lg:flex-row lg:h-[10vh] bg-slate-900 flex flex-col justify-center items-center overflow-hidden text-2xl h-[20vh] text-slate-100 font-semibold">
+                                <div class="flex flex-col leading-1.5 h-12 ">
+                                    <p class="font-hanken text-lg md:text-xl relative top-0 ">TOTAL</p>
+                                    <br>
+                                    <p class="text-lg relative md:hidden -top-3 leading-4">trans- <br>actions </p>
+                                    <p class="text-lg md:text-2xl md:inline-block hidden relative -top-2 leading-4">transactions</p>
+                                </div>
+                                <div class="relative lg:flex lg:flex-row mt-4 gap-2">
+                                    <p class="hidden lg:ml-3 lg:block">|</p>
+                                    <div class="bg-slate-100 lg:hidden -left-4 md:-left-14 md:w-35 w-15 absolute h-0.5"></div>
+                                    <p class="mt-5 lg:mt-0">30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Transaction Details Section-->
+                    <div class=" relative top-13 xl:top-30 h-250 sm:h-270 xl:h-290 ">
+                        <div class=" gap-2 mb-10 sm:mb-15 flex items-center ">
+                            <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Transactions</h2>
+                            <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">DETAILS</h2>
+                            <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                        </div>
+                        <div class="w-[85vw] h-180  lg:mt-5 rounded-4xl gap-1 flex flex-col overflow-y-scroll overflow-x-hidden ">
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" shrink-0 relative overflow-hidden  font-semibold text-lg md:text-xl lg:text-2xl w-[85vw] h-25 flex items-center">
+                                <div class="absolute top-0">
+                                    <img src="/resources/heroImage.png" class="grayscale relative xl:-top-80">
+                                    <div class="bg-linear-to-r from-slate-200/100 from-42% to-75% to-slate-100/90 w-[85vw] top-0  absolute h-[25vh] z-10"></div>
+                                </div>
+                                <div class="z-20 items-center md:text-xl lg:text-2xl justify-around flex flex-row w-[85vw]">
+                                    <div class="leading-5 text-slate-900 flex items-center gap-2">
+                                        <svg xmlns="/resources/cake.svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                                            <path d="m15 1.784-.796.795a1.125 1.125 0 1 0 1.591 0L15 1.784ZM12 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L12 1.784ZM9 1.784l-.796.795a1.125 1.125 0 1 0 1.591 0L9 1.784ZM9.75 7.547c.498-.021.998-.035 1.5-.042V6.75a.75.75 0 0 1 1.5 0v.755c.502.007 1.002.021 1.5.042V6.75a.75.75 0 0 1 1.5 0v.88l.307.022c1.55.117 2.693 1.427 2.693 2.946v1.018a62.182 62.182 0 0 0-13.5 0v-1.018c0-1.519 1.143-2.829 2.693-2.946l.307-.022v-.88a.75.75 0 0 1 1.5 0v.797ZM12 12.75c-2.472 0-4.9.184-7.274.54-1.454.217-2.476 1.482-2.476 2.916v.384a4.104 4.104 0 0 1 2.585.364 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 3.67 0 2.605 2.605 0 0 0 2.33 0 4.104 4.104 0 0 1 2.585-.364v-.384c0-1.434-1.022-2.7-2.476-2.917A49.138 49.138 0 0 0 12 12.75ZM21.75 18.131a2.604 2.604 0 0 0-1.915.165 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.605 2.605 0 0 0-2.33 0 4.104 4.104 0 0 1-3.67 0 2.604 2.604 0 0 0-1.915-.165v2.494c0 1.035.84 1.875 1.875 1.875h15.75c1.035 0 1.875-.84 1.875-1.875v-2.494Z" />
+                                        </svg>
+                                        <div>
+                                            <p>Birthday</p>
+                                            <p class="font-hanken">BENEFIT</p>
+                                        </div>
+                                        <div class="h-10 w-1 ml-5 sm:mr-20 md:mr-40 mr-7 bg-slate-900"></div>
+                                    </div>
+                                    <div class=" leading-5 ">
+                                        <p>Date of Claim</p>
+                                        <p class="font-hanken -mt-1.05">SEPT 29, 2005</p>
+                                    </div>
+                                    <div class=" leading-5 hidden sm:block  ">
+                                        <p>Status</p>
+                                        <p class="font-hanken -mt-1.05">CLAIMED</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="claimBtnWindow" class="hidden font-semibold flex-col fixed items-center justify-center w-screen h-screen z-20  top-0">
+                <div id="claimBtnWindowBackdrop" class=" w-screen h-screen absolute top-0 left-0 backdrop-blur-xs bg-slate-900/50"></div>
+                <div class="z-40 overflow-hidden justify-center flex flex-col gap-2 items-center lg:w-120 h-110 w-80 sm:w-100 lg:h-120 relative top-10 bg-slate-200/80 backdrop-blur-xs rounded-4xl">
+                    <div class=" mt-0 lg:mt-10 w-[90vw] text-center text-3xl flex flex-col justify-center items-center relative gap-2">
+                        <p class = "text-2xl">Claiming Method</p>
+                        <div class="w-20 bg-slate-900 h-1"></div>
+                    </div>
+                    <div class="group/gcash hover:bg-slate-900 hover:text-slate-100 mt-10 flex items-center justify-around bg-slate-100 px-10 h-20 rounded-2xl  lg:w-100 w-70 sm:w-90 justify-self-center">
+                        <div class=" transition-all flex w-[70vw] flex-row items-center gap-2">
+                            <img src="/resources/GCash_logo.png" class="h-4 sm:h-5 group-hover/gcash:brightness-0 group-hover/gcash:invert">
+                            <p class="text-xs sm:text-lg text-nowrap">E-wallet(GCash)</p>
+                        </div>
+                        <input type="radio" name="transaction" class="accent-slate-900 size-5">
+                    </div>
+                    <div class="transition-all group/cash  active:bg-slate-900 hover:bg-slate-900 lg:w-100 hover:text-slate-100 flex items-center justify-around bg-slate-100 px-10 h-20 rounded-2xl sm:w-90  w-70 justify-self-center">
+                        <div class=" flex w-[70vw] flex-row items-center gap-2">
+                            <div class="w-5 h-5 bg-slate-900 [mask-image:url('/resources/banknotes.svg')] group-hover/cash:bg-slate-100 mask-no-repeat mask-center mask-contain"></div>
+                            <p class="text-xs sm:text-lg">Cash</p>
+                        </div>
+                        <input type="radio" name="transaction" class="size-5 outline-0 accent-slate-900">
+                    </div>
+                    <div class="mt-10 flex gap-3">
+                        <button id="cancelBtnClaimingMethod" class="border-slate-900  hover:bg-slate-900/70 hover:border-slate-900/10  hover:text-slate-100 rounded-4xl border-2 py-1 px-7">Cancel</button>
+                        <button class="bg-slate-900 rounded-4xl   hover:bg-slate-900/70 text-slate-100 py-1.5 px-7">Confirm</button>
+                    </div>
+                </div>
+            </div>
+          
+        </main>
+        
+          <footer id = "aboutusSection" class = "sectionContainer relative lg:top-0 -top-[5vh] text-slate-100 bg-slate-900 overflow-y-visible">
+            <div class = "md:flex md:flex-row lg:h-65 md:h-[30vh] text-poppins font-semibold lg:mx-[8vw] mx-[6vw] relative lg:-top-[1vh] top-[4vh] xl:pt-[10vh] lg:pt-[6vh] md:pt-[5vh] md:pb-0 pb-[3vh]">
+                <div class="flex flex-col flex-1 text-[2em]">
+                    <div class="flex items-start w-full relative font-hanken">CONTACT US</div>
+                    <div class="flex lg:flex-row flex-col text-[0.4em] mt-[3vh]">
+                        <div class="flex items-center flex-1 pr-[2vw]">
+                            <div>
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lg:size-[2.5vw] sm:size-[4vw] size-[8vw] border rounded-full bg-slate p-[0.3em] text-slate-900 bg-white">
+                                <path fill-rule="evenodd" d="m3.855 7.286 1.067-.534a1 1 0 0 0 .542-1.046l-.44-2.858A1 1 0 0 0 4.036 2H3a1 1 0 0 0-1 1v2c0 .709.082 1.4.238 2.062a9.012 9.012 0 0 0 6.7 6.7A9.024 9.024 0 0 0 11 14h2a1 1 0 0 0 1-1v-1.036a1 1 0 0 0-.848-.988l-2.858-.44a1 1 0 0 0-1.046.542l-.534 1.067a7.52 7.52 0 0 1-4.86-4.859Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="lg:ml-[1vw] ml-[3vw]">
+                                Mobile: (+63) 9874-213-1234<br>
+                                Landline: (049) 123-2331<br>
+                                Emergency: (+63) 9874-213-1234
+                            </div>      
+                        </div>
+                        <div class="flex flex-1 items-center lg:mt-0 mt-[2vh]">
+                            <div>
+                                <a href="https://www.google.com/maps/place/Kanluran+Barangay+Hall/@14.3134069,121.1050175,17z/data=!3m1!4b1!4m6!3m5!1s0x3397d9b9fdcbb529:0xf49154d1ce8773bd!8m2!3d14.3134017!4d121.1075924!16s%2Fg%2F1tdmbf4x?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lg:size-[2.5vw] sm:size-[4vw] size-[8vw] border rounded-full bg-slate p-[0.3em] text-slate-900 bg-white hover:text-white hover:bg-slate-900 hover:border-0">
+                                    <path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
+                                    </svg>   
+                                </a>
+                            </div>
+                            <div class="lg:ml-[1vw] ml-[3vw] md:w-full sm:w-[40vw] w-[50vw]">
+                                Address: 8475+928, Leon Arcillas
+                                Blvd, Kanluran, City of Santa Rosa, 
+                                4026 Laguna
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 flex md:mt-0 mt-[5vh]">
+                    <div class="flex-1 flex-col space-y-[1vh] lg:mx-[3vw]">
+                        <div class="font-hanken text-[1.3em]">GOVERMENT LINKS</div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://op-proper.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Office Of The President
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://www.ovp.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Office Of The Vice President
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://legacy.senate.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Senate Of The Philippines
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://www.congress.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> House Of The Representatives
+                            </a>
+                        </div>
+            
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://sb.judiciary.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Sandigangbayan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-1 flex flex-col space-y-[1vh] ml-[3vw]">
+                        <div class="font-hanken text-[1.3em]">QUICK LINKS</div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Home
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Officials
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> News
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Logins
+                            </a>
+                        </div>
+            
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> About Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center h-[10vh] bg-slate-950 relative -bottom-[5vh]">
+                <div class="flex items-center flex-1 pl-[5vw] space-x-[3vw]">
+                    <h1 class = "top-2  relative font-hanken text-2xl md:text-3xl font-semibold tracking-tighter">
+                    <span class = "text-slate-900 bg-slate-100 font-poppins font-semibold text-[7px] md:text-[10px] tracking-[0.5vw] absolute -top-[1vh] ">
+                        BARANGAY
+                    </span>
+                    Kanluran
+                    </h1>
+                    <div>
+                       <a target = "_blank" href = "https://www.facebook.com/profile.php?id=61555148279432">
+                            <img src = "/resources/Facebook_Logo_Secondary.png" class = "size-4 md:size-8" >
+                        </a> 
+                    </div>
+                    <div>
+                       <a target = "_blank" href = "https://www.facebook.com/messages/t/203853872808930">
+                            <img src = "/resources/Messenger_Icon_Secondary_White.png" class = " md:size-8 size-4">
+                        </a> 
+                    </div>
+                    <div>
+                       <a target = "_blank" href = "mailto:brgykanluran2024@gmail.com">
+                        <img src = "/resources/gmail.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class = "md:size-9.5 size-7 brightness-4000 ">
+                        </a> 
+                    </div>
+                    
+                </div>
+                <div class="flex flex-1 lg:pr-[5vw] justify-end">
+                    <h6 class = "md:text-[1em] text-[0.8em] lg:pl-0 pl-[10vw] text-gray-400">&copy; 2025 Barangay Kanluran. All rights reserved.</h6>
+                </div>          
+            </div>
+        </footer>
+        <div class = "fixed bottom-5 flex justify-end z-50 w-screen  h-[10vh]">
+            <audio id="notificationSound" src = "../resources/notification_sound.mp3" preload="auto"></audio>
+            <div id = "offlineContainer" class = "hidden py-2 px-4 text-slate-100 xl:h-15 md:h-[5vh]  mr-10 gap-2 rounded-2xl bg-slate-900/80 backdrop-blur-xs  items-center justify-center">
+                <div class = "relative">
+                    <div class = "absolute top-0 bg-slate-100 h-7 left-2.5 rotate-210 w-1"></div>
+                    <img class = "mask-[url('../resources/wifi.svg')] size-7 mask-contain bg-slate-50">
+                </div>
+                <div class = "leading-2 mt-2">
+                    <p class = "font-semibold">You're Currently Offline!</p>
+                    <p class = "text-sm">Check your Network Connection</p>
+                </div>
+            </div>
+            <div id = "onlineContainer" class = "hidden py-2 px-4 text-slate-100 xl:h-15 md:h-[5vh]  mr-10 gap-2 rounded-2xl bg-slate-900/80 backdrop-blur-xs  items-center justify-center">
+                <div class = "relative">
+
+                    <img class = "mask-[url('../resources/wifi.svg')] size-7 mask-contain bg-slate-50">
+                </div>
+                <div >
+                    <p class = "font-semibold">Connection Established!</p>
+                </div>
+            </div>
+           
+           
+        </div>
+        
+    </body>
+</html>
